@@ -5,6 +5,8 @@ const time = function() {
         p.textContent = Number(p.textContent) - 1;
     } else if (p.textContent = '0') {
         alert('You win!');
+    } else if (Number(p.textContent) <= 0) {
+        clearInterval(time);
     }
 }
 
