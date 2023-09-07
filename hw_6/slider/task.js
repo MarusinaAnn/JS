@@ -1,6 +1,11 @@
-var slideNumber = 0;
-var sliderItems = document.getElementsByClassName("slider__item");
-var sliderDots = document.getElementsByClassName("slider__dot");
+let sliderItems = document.getElementsByClassName("slider__item");
+let slideNumber = [...sliderItems].findIndex(i => i.classList.contains('slider__item_active'));
+let sliderDots = document.getElementsByClassName("slider__dot");
+
+function isActive(element) {
+	let a= element.classList.contains("slider__item_active")
+	return a
+  }
 
 function prevSlide() {
 	slideNumber = (slideNumber == 0) ? sliderItems.length - 1 : slideNumber - 1;
@@ -12,7 +17,7 @@ function nextSlide() {
 
 function customSlide(targetDotElement) {
 	slideNumber = 0;
-	var dotElem = targetDotElement.previousElementSibling;
+	let dotElem = targetDotElement.previousElementSibling;
 	while (dotElem) {
 		slideNumber++;
 		dotElem = dotElem.previousElementSibling;
